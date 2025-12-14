@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
 <title>Triska Tarot</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,20 +18,14 @@
 
 body {
   font-family: Arial, sans-serif;
-  overflow: hidden;
   background: black;
+  overflow: hidden;
 }
 
-/* VIDEO */
-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: none;
-  z-index: -2;
+/* VIDEO (NO visible hasta tocar play) */
+#video {
+  visibility: hidden;
+  position: absolute;
 }
 
 /* IMAGEN INICIAL */
@@ -46,7 +39,7 @@ video {
   z-index: -1;
 }
 
-/* CAPA OSCURA */
+/* OSCURECER PARA LEER TEXTO */
 #overlay {
   position: fixed;
   top: 0;
@@ -119,7 +112,7 @@ h1 {
 <div id="fondo"></div>
 <div id="overlay"></div>
 
-<!-- CONTENIDO -->
+<!-- TEXTO -->
 <div id="contenido">
   <h1>Triska Tarot</h1>
 
@@ -130,7 +123,7 @@ h1 {
   <a id="whatsapp" class="boton"
      href="https://wa.me/5491136170640"
      target="_blank">
-    Consultas por WhatsApp
+    Consultas WhatsApp
   </a>
 </div>
 
@@ -141,14 +134,21 @@ function playTodo() {
   const fondo = document.getElementById("fondo");
 
   fondo.style.display = "none";
-  video.style.display = "block";
 
-  video.play().catch(() => {});
-  musica.play().catch(() => {});
+  video.style.visibility = "visible";
+  video.style.position = "fixed";
+  video.style.top = "0";
+  video.style.left = "0";
+  video.style.width = "100%";
+  video.style.height = "100%";
+  video.style.objectFit = "cover";
+  video.style.zIndex = "-2";
+
+  video.play().catch(()=>{});
+  musica.play().catch(()=>{});
 }
 </script>
 
 </body>
 </html>
-
 
