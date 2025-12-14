@@ -2,152 +2,32 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Triska Tarot</title>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
+<title>Mensaje Triska</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: Arial, sans-serif;
+  margin: 0;
   background: black;
-  overflow: hidden;
 }
 
-/* VIDEO (NO visible hasta tocar play) */
-#video {
-  visibility: hidden;
-  position: absolute;
-}
-
-/* IMAGEN INICIAL */
-#fondo {
-  position: fixed;
-  top: 0;
-  left: 0;
+video {
   width: 100%;
-  height: 100%;
-  background: url("fondo.jpg") center center / cover no-repeat;
-  z-index: -1;
-}
-
-/* OSCURECER PARA LEER TEXTO */
-#overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.55);
-  z-index: 0;
-}
-
-/* CONTENIDO */
-#contenido {
-  position: relative;
-  z-index: 2;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-}
-
-h1 {
-  font-size: 48px;
-  margin-bottom: 25px;
-}
-
-/* BOTONES */
-.boton {
-  font-size: 24px;
-  padding: 12px 28px;
-  margin: 10px;
-  border-radius: 14px;
-  cursor: pointer;
-}
-
-#play {
-  background: crimson;
-  color: white;
-  border: none;
-}
-
-#whatsapp {
-  border: 2px solid #25D366;
-  color: #25D366;
-  text-decoration: none;
-}
-
-#whatsapp:hover {
-  background: #25D366;
-  color: black;
+  object-fit: cover;
 }
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO (FACEBOOK FRIENDLY) -->
-<video id="video" muted loop playsinline controls preload="metadata">
+<video autoplay controls loop playsinline>
   <source src="video.mp4" type="video/mp4">
 </video>
 
-<!-- MUSICA -->
-<audio id="musica" loop preload="metadata">
+<audio autoplay loop>
   <source src="musica.mp3" type="audio/mpeg">
 </audio>
-
-<!-- FONDO -->
-<div id="fondo"></div>
-<div id="overlay"></div>
-
-<!-- TEXTO -->
-<div id="contenido">
-  <h1>Triska Tarot</h1>
-
-  <button id="play" class="boton" onclick="playTodo()">
-    ▶ Ver mensaje
-  </button>
-
-  <a id="whatsapp" class="boton"
-     href="https://wa.me/5491136170640"
-     target="_blank">
-    Consultas WhatsApp
-  </a>
-</div>
-
-<script>
-function playTodo() {
-  const video = document.getElementById("video");
-  const musica = document.getElementById("musica");
-  const fondo = document.getElementById("fondo");
-
-  fondo.style.display = "none";
-
-  video.style.visibility = "visible";
-  video.style.position = "fixed";
-  video.style.top = "0";
-  video.style.left = "0";
-  video.style.width = "100%";
-  video.style.height = "100%";
-  video.style.objectFit = "cover";
-  video.style.zIndex = "-2";
-
-  video.play().catch(()=>{});
-  musica.play().catch(()=>{});
-}
-</script>
 
 </body>
 </html>
