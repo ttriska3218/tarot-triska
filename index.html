@@ -6,46 +6,43 @@
 <title>Consejera Espiritual Triska</title>
 
 <style>
-body {
+html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
   font-family: Arial, sans-serif;
-  color: white;
-  text-align: center;
 }
 
 /* VIDEO DE FONDO */
-video {
+#videoFondo {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
   object-fit: cover;
   z-index: -1;
 }
 
 /* CONTENIDO */
 .contenido {
-  background-color: rgba(0, 0, 0, 0.55);
-  width: 90%;
+  position: relative;
+  z-index: 1;
+  background: rgba(0,0,0,0.6);
+  color: white;
   max-width: 800px;
-  margin: 60px auto;
-  padding: 20px;
-  border-radius: 10px;
+  margin: 80px auto;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 48px;
 }
 
 h2 {
-  font-size: 28px;
-  color: #ffd700;
-}
-
-p {
-  font-size: 20px;
+  color: gold;
 }
 
 a {
@@ -59,8 +56,7 @@ a {
 
 <body>
 
-<!-- VIDEO SIN AUDIO -->
-<video autoplay muted loop playsinline>
+<video id="videoFondo" autoplay muted loop playsinline>
   <source src="casa.mp4" type="video/mp4">
 </video>
 
@@ -69,10 +65,9 @@ a {
   <h2>San Justo - Buenos Aires</h2>
 
   <p>🔮 Lecturas claras y profundas</p>
-  <p>✨ Unión de parejas – Problemas Laborales – Abrecaminos – Angustias – Depresión</p>
-  <p>Endulzamiento · No dejes de consultarme</p>
+  <p>✨ Unión de parejas – Trabajo – Abrecaminos – Angustias</p>
 
-  <p><strong>Consultas al WhatsApp:</strong></p>
+  <p><strong>Consultas al WhatsApp</strong></p>
   <a href="https://wa.me/541136170640" target="_blank">
     📲 11 3617 0640
   </a>
