@@ -29,15 +29,15 @@ body {
 .contenido {
   position: relative;
   z-index: 10;
-  background: rgba(0,0,0,0.6);
-  max-width: 800px;
+  background: rgba(0,0,0,0.65);
+  max-width: 850px;
   margin: 80px auto;
-  padding: 25px;
+  padding: 30px;
   border-radius: 15px;
 }
 
 h1 {
-  font-size: 42px;
+  font-size: 44px;
 }
 
 h2 {
@@ -57,8 +57,8 @@ a {
 
 /* BOTÓN */
 button {
-  margin-top: 20px;
-  padding: 15px 30px;
+  margin-top: 25px;
+  padding: 15px 35px;
   font-size: 18px;
   border: none;
   border-radius: 30px;
@@ -70,31 +70,28 @@ button {
 
 <body>
 
-<!-- VIDEO -->
+<!-- VIDEO DE FONDO (SIN AUDIO) -->
 <video id="video-fondo" autoplay muted loop>
   <source src="casa.mp4" type="video/mp4">
 </video>
 
-<!-- AUDIO YOUTUBE (OCULTO) -->
-<iframe
-  id="musica"
-  width="1"
-  height="1"
-  style="display:none"
-  src="https://www.youtube.com/embed/uGIVFUA8E3c?enablejsapi=1"
-  frameborder="0">
-</iframe>
+<!-- CONTENEDOR DE MÚSICA -->
+<div id="musica"></div>
 
 <div class="contenido">
   <h1>Consejera Espiritual Triska</h1>
   <h2>San Justo - Buenos Aires</h2>
 
   <p>🔮 Lecturas claras y profundas</p>
-  <p>✨ Unión de parejas – Abrecaminos – Amarres - Desamarres - Depresion - Vicios - Endulzamiento  </p>
+  <p>
+    ✨ Amarres y Desamarres – Endulzamientos <br>
+    🌙 Depresión – Vicios – Angustias <br>
+    💼 Sacar trabajo – Abrecaminos
+  </p>
 
   <p>
     <a href="https://wa.me/541136170640" target="_blank">
-      📲 11 3617 0640
+      📲 Consultas WhatsApp: 11 3617 0640
     </a>
   </p>
 
@@ -104,8 +101,15 @@ button {
 
 <script>
 function activarMusica() {
-  const iframe = document.getElementById("musica");
-  iframe.src = iframe.src + "&autoplay=1";
+  document.getElementById("musica").innerHTML = `
+    <iframe
+      width="1"
+      height="1"
+      src="https://www.youtube.com/embed/uGIVFUA8E3c?autoplay=1"
+      frameborder="0"
+      allow="autoplay">
+    </iframe>
+  `;
 }
 </script>
 
