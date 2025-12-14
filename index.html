@@ -36,26 +36,6 @@ body {
   border-radius: 15px;
 }
 
-h1 {
-  font-size: 44px;
-}
-
-h2 {
-  color: gold;
-}
-
-p {
-  font-size: 20px;
-}
-
-a {
-  color: #00ff22;
-  font-size: 22px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* BOTÓN */
 button {
   margin-top: 25px;
   padding: 15px 35px;
@@ -70,19 +50,20 @@ button {
 
 <body>
 
-<!-- VIDEO DE FONDO SIN AUDIO -->
+<!-- VIDEO DE FONDO -->
 <video id="video-fondo" autoplay muted loop playsinline>
   <source src="casa.mp4" type="video/mp4">
 </video>
 
-<!-- CONTENEDOR DE MÚSICA -->
-<div id="musica"></div>
+<!-- AUDIO SIN PUBLICIDAD -->
+<audio id="musica" loop>
+  <source src="puerta.mp3" type="audio/mpeg">
+</audio>
 
 <div class="contenido">
   <h1>Consejera Espiritual Triska</h1>
   <h2>San Justo - Buenos Aires</h2>
 
-  <p>🔮 Lecturas claras y profundas</p>
   <p>
     ✨ Amarres y Desamarres – Endulzamientos<br>
     🌙 Depresión – Vicios – Angustias<br>
@@ -91,25 +72,23 @@ button {
 
   <p>
     <a href="https://wa.me/541136170640" target="_blank">
-      📲 Consultas WhatsApp: 11 3617 0640
+      📲 11 3617 0640
     </a>
   </p>
 
-  <!-- BOTÓN -->
-  <button onclick="activarMusica()">▶️ Activar música</button>
+  <!-- BOTÓN PLAY / PAUSA -->
+  <button onclick="toggleMusic()">▶️ / ⏸️ Música</button>
 </div>
 
 <script>
-function activarMusica() {
-  document.getElementById("musica").innerHTML = `
-    <iframe
-      width="1"
-      height="1"
-      src="https://www.youtube.com/embed/uGIVFUA8E3c?autoplay=1"
-      frameborder="0"
-      allow="autoplay">
-    </iframe>
-  `;
+const audio = document.getElementById("musica");
+
+function toggleMusic() {
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+  }
 }
 </script>
 
