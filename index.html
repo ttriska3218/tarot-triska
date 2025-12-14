@@ -2,20 +2,118 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>PRUEBA VIDEO</title>
-</head>
-<body style="margin:0; background:black;">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consejera Espiritual Triska</title>
 
-<video
-  src="casa.mp4"
-  controls
-  autoplay
-  muted
-  loop
-  style="width:100vw;height:100vh;object-fit:cover;">
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+
+/* VIDEO DE FONDO */
+video{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-10;
+}
+
+/* OSCURECER VIDEO */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  z-index:-5;
+}
+
+/* DESTELLOS */
+.destello{
+  position:fixed;
+  width:4px;
+  height:4px;
+  background:gold;
+  border-radius:50%;
+  box-shadow:0 0 10px gold;
+  animation:caer linear infinite;
+  z-index:-1;
+}
+
+@keyframes caer{
+  from{transform:translateY(-10vh);}
+  to{transform:translateY(110vh);}
+}
+
+/* CONTENIDO */
+.contenido{
+  position:relative;
+  z-index:5;
+  background:rgba(0,0,0,0.6);
+  width:90%;
+  max-width:800px;
+  margin:60px auto;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 0 30px gold;
+}
+
+button{
+  margin-top:15px;
+  padding:12px 22px;
+  font-size:18px;
+  cursor:pointer;
+  border:none;
+  border-radius:8px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO DE FONDO (SIN AUDIO) -->
+<video autoplay muted loop playsinline>
+  <source src="fondo.mp4" type="video/mp4">
 </video>
+
+<div class="overlay"></div>
+
+<!-- DESTELLOS -->
+<span class="destello" style="left:10%;animation-duration:1.5s;"></span>
+<span class="destello" style="left:30%;animation-duration:1.2s;"></span>
+<span class="destello" style="left:50%;animation-duration:1.8s;"></span>
+<span class="destello" style="left:70%;animation-duration:1.4s;"></span>
+<span class="destello" style="left:90%;animation-duration:2s;"></span>
+
+<div class="contenido">
+  <h1>Consejera Espiritual Triska</h1>
+  <h2>San Justo - Buenos Aires</h2>
+
+  <p>🔮 Lecturas claras y profundas</p>
+
+  <button onclick="activarMusica()">🎵 Activar música</button>
+</div>
+
+<!-- MÚSICA YOUTUBE -->
+<iframe
+  id="yt"
+  width="0"
+  height="0"
+  src="https://www.youtube.com/embed/uGIVFUA8E3c?autoplay=1&mute=1&loop=1&playlist=uGIVFUA8E3c"
+  frameborder="0"
+  allow="autoplay">
+</iframe>
+
+<script>
+function activarMusica(){
+  const iframe = document.getElementById("yt");
+  iframe.src = "https://www.youtube.com/embed/uGIVFUA8E3c?autoplay=1&mute=0&loop=1&playlist=uGIVFUA8E3c";
+}
+</script>
 
 </body>
 </html>
-
-
