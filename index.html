@@ -12,29 +12,36 @@
       font-family: Arial, sans-serif;
       color: #ffffff;
       text-align: center;
-      overflow-x: hidden;
+      overflow: hidden;
     }
 
-    /* Fondo animado REAL */
     .fondo {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 120%;
-      height: 120%;
+      inset: 0;
       background-image: url("tar.jpg");
       background-size: cover;
-      background-repeat: no-repeat;
-      animation: moverFondo 40s linear infinite alternate;
-      z-index: -2;
+      background-position: center;
+      z-index: -3;
     }
 
-    @keyframes moverFondo {
+    .energia {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center,
+        rgba(255,215,0,0.15),
+        rgba(128,0,255,0.15),
+        rgba(0,0,0,0.7));
+      animation: energia 6s ease-in-out infinite alternate;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    @keyframes energia {
       from {
-        transform: translateX(0) scale(1);
+        opacity: 0.4;
       }
       to {
-        transform: translateX(-10%) scale(1.1);
+        opacity: 0.9;
       }
     }
 
@@ -77,6 +84,7 @@
 <body>
 
   <div class="fondo"></div>
+  <div class="energia"></div>
 
   <div class="contenido">
     <h1>Consejera Espiritual Triska</h1>
@@ -92,49 +100,13 @@
     </a>
   </div>
 
-  <iframe id="musicaYT"
+  <iframe
     width="0"
     height="0"
     src="https://www.youtube.com/embed/uGIVFUA8E3c?autoplay=1&mute=1&loop=1&playlist=uGIVFUA8E3c"
     frameborder="0"
-    allow="autoplay; encrypted-media">
+    allow="autoplay">
   </iframe>
-
-  <button id="btnMusica" onclick="toggleMusica()" style="
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 12px 18px;
-    font-size: 16px;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    background: #ffd700;
-    color: #000;
-    font-weight: bold;
-    z-index: 2;
-  ">
-    🔮 Activar música
-  </button>
-
-  <script>
-    let sonido = false;
-
-    function toggleMusica() {
-      const iframe = document.getElementById("musicaYT");
-      const btn = document.getElementById("btnMusica");
-
-      if (!sonido) {
-        iframe.src = "https://www.youtube.com/embed/uGIVFUA8E3c?autoplay=1&mute=0&loop=1&playlist=uGIVFUA8E3c";
-        btn.innerText = "🔇 Pausar música";
-        sonido = true;
-      } else {
-        iframe.src = "https://www.youtube.com/embed/uGIVFUA8E3c?autoplay=1&mute=1&loop=1&playlist=uGIVFUA8E3c";
-        btn.innerText = "🔮 Activar música";
-        sonido = false;
-      }
-    }
-  </script>
 
 </body>
 </html>
