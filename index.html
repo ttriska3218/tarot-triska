@@ -21,32 +21,52 @@
       background-image: url("tar.jpg");
       background-size: cover;
       background-position: center;
-      z-index: -3;
+      animation: zoom 3s ease-in-out infinite alternate;
+      z-index: -4;
+    }
+
+    @keyframes zoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.07); }
     }
 
     .energia {
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle at center,
-        rgba(255,215,0,0.15),
-        rgba(128,0,255,0.15),
-        rgba(0,0,0,0.7));
-      animation: energia 6s ease-in-out infinite alternate;
+      background: radial-gradient(circle,
+        rgba(255,215,0,0.35),
+        rgba(180,0,255,0.35),
+        rgba(0,0,0,0.8));
+      animation: pulso 2s ease-in-out infinite alternate;
+      z-index: -3;
+      pointer-events: none;
+    }
+
+    @keyframes pulso {
+      from { opacity: 0.3; }
+      to { opacity: 1; }
+    }
+
+    .destellos {
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.9) 2px, transparent 3px),
+        radial-gradient(circle, rgba(255,215,0,0.9) 2px, transparent 3px),
+        radial-gradient(circle, rgba(200,100,255,0.9) 2px, transparent 3px);
+      background-size: 120px 120px;
+      animation: destellos 1.2s linear infinite;
       z-index: -2;
       pointer-events: none;
     }
 
-    @keyframes energia {
-      from {
-        opacity: 0.4;
-      }
-      to {
-        opacity: 0.9;
-      }
+    @keyframes destellos {
+      from { background-position: 0 0, 50px 100px, 100px 50px; }
+      to { background-position: 120px 240px, 200px 300px, 300px 200px; }
     }
 
     .contenido {
-      background-color: rgba(0, 0, 0, 0.55);
+      background-color: rgba(0, 0, 0, 0.6);
       width: 90%;
       max-width: 800px;
       margin: 60px auto;
@@ -54,11 +74,13 @@
       border-radius: 10px;
       position: relative;
       z-index: 1;
+      box-shadow: 0 0 25px rgba(255,215,0,0.6);
     }
 
     h1 {
       font-size: 50px;
       margin-bottom: 10px;
+      text-shadow: 0 0 15px gold;
     }
 
     h2 {
@@ -85,14 +107,15 @@
 
   <div class="fondo"></div>
   <div class="energia"></div>
+  <div class="destellos"></div>
 
   <div class="contenido">
     <h1>Consejera Espiritual Triska</h1>
     <h2>San Justo - Buenos Aires</h2>
 
     <p>🔮 Lecturas claras y profundas</p>
-    <p>✨ Unión de parejas – Problemas Laborales – Abrecaminos – Problemas de vicios Angustias Depresión</p>
-    <p>Endulzamiento no dejes de consultarme</p>
+    <p>✨ Unión de parejas – Problemas laborales – Abrecaminos – Vicios – Angustias – Depresión</p>
+    <p>No dejes de consultarme</p>
 
     <p><strong>Consultas al WhatsApp:</strong></p>
     <a href="https://wa.me/541136170640" target="_blank">
