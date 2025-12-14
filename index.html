@@ -14,7 +14,6 @@ body {
   text-align: center;
 }
 
-/* VIDEO DE FONDO */
 #video-fondo {
   position: fixed;
   top: 0;
@@ -25,7 +24,6 @@ body {
   z-index: -10;
 }
 
-/* CONTENIDO */
 .contenido {
   position: relative;
   z-index: 10;
@@ -50,12 +48,11 @@ button {
 
 <body>
 
-<!-- VIDEO DE FONDO -->
 <video id="video-fondo" autoplay muted loop playsinline>
   <source src="casa.mp4" type="video/mp4">
 </video>
 
-<!-- AUDIO SIN PUBLICIDAD -->
+<!-- AUDIO LOCAL -->
 <audio id="musica" loop>
   <source src="puerta.mp3" type="audio/mpeg">
 </audio>
@@ -76,7 +73,6 @@ button {
     </a>
   </p>
 
-  <!-- BOTÓN PLAY / PAUSA -->
   <button onclick="toggleMusic()">▶️ / ⏸️ Música</button>
 </div>
 
@@ -94,3 +90,4 @@ function toggleMusic() {
 
 </body>
 </html>
+
