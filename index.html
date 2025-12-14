@@ -1,122 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consejera Espiritual Triska</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consejera Espiritual Triska</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: black;
-      color: white;
-      text-align: center;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: black;
+  color: white;
+  text-align: center;
+}
 
-    /* VIDEO DE FONDO */
-    video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
+/* VIDEO DE FONDO */
+#video-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -10;
+}
 
-    /* CONTENIDO */
-    .contenido {
-      background-color: rgba(0, 0, 0, 0.6);
-      width: 90%;
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 20px;
-      border-radius: 12px;
-    }
+/* CONTENIDO */
+.contenido {
+  position: relative;
+  z-index: 10;
+  background: rgba(0,0,0,0.6);
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 25px;
+  border-radius: 15px;
+}
 
-    h1 {
-      font-size: 48px;
-    }
+h1 {
+  font-size: 42px;
+}
 
-    h2 {
-      color: gold;
-    }
+h2 {
+  color: gold;
+}
 
-    p {
-      font-size: 20px;
-    }
+p {
+  font-size: 20px;
+}
 
-    a {
-      color: #00ff22;
-      font-size: 22px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+a {
+  color: #00ff22;
+  font-size: 22px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    /* BOTÓN MÚSICA */
-    .btn-musica {
-      margin-top: 20px;
-      padding: 12px 25px;
-      font-size: 18px;
-      background: #ffd700;
-      color: black;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-    }
-
-    .btn-musica:hover {
-      background: #ffcc00;
-    }
-
-    iframe {
-      display: none;
-    }
-  </style>
+/* BOTÓN */
+button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  background: gold;
+  cursor: pointer;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- VIDEO DE FONDO -->
-  <video autoplay muted loop>
-    <source src="casa.mp4" type="video/mp4">
-  </video>
+<!-- VIDEO -->
+<video id="video-fondo" autoplay muted loop>
+  <source src="casa.mp4" type="video/mp4">
+</video>
 
-  <!-- YOUTUBE AUDIO -->
-  <iframe
-    id="ytplayer"
-    src="https://www.youtube.com/embed/uGIVFUA8E3c?enablejsapi=1"
-    frameborder="0">
-  </iframe>
+<!-- AUDIO YOUTUBE (OCULTO) -->
+<iframe
+  id="musica"
+  width="1"
+  height="1"
+  style="display:none"
+  src="https://www.youtube.com/embed/uGIVFUA8E3c?enablejsapi=1"
+  frameborder="0">
+</iframe>
 
-  <div class="contenido">
-    <h1>Consejera Espiritual Triska</h1>
-    <h2>San Justo - Buenos Aires</h2>
+<div class="contenido">
+  <h1>Consejera Espiritual Triska</h1>
+  <h2>San Justo - Buenos Aires</h2>
 
-    <p>🔮 Lecturas claras y profundas</p>
-    <p>✨ Unión de parejas – Problemas Laborales – Abrecaminos</p>
+  <p>🔮 Lecturas claras y profundas</p>
+  <p>✨ Unión de parejas – Abrecaminos – Trabajo</p>
 
-    <p><strong>Consultas al WhatsApp:</strong></p>
+  <p>
     <a href="https://wa.me/541136170640" target="_blank">
       📲 11 3617 0640
     </a>
+  </p>
 
-    <br><br>
+  <!-- BOTÓN -->
+  <button onclick="activarMusica()">▶️ Activar música</button>
+</div>
 
-    <button class="btn-musica" onclick="activarMusica()">
-      ▶️ Activar música
-    </button>
-  </div>
-
-  <script>
-    function activarMusica() {
-      const iframe = document.getElementById("ytplayer");
-      iframe.src = iframe.src + "&autoplay=1";
-    }
-  </script>
+<script>
+function activarMusica() {
+  const iframe = document.getElementById("musica");
+  iframe.src = iframe.src + "&autoplay=1";
+}
+</script>
 
 </body>
 </html>
