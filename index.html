@@ -9,66 +9,119 @@
 body{
   margin:0;
   font-family:Arial,sans-serif;
-  color:white;
+  color:#fff;
   text-align:center;
   overflow:hidden;
 }
 
-video{
+/* VIDEO DE FONDO */
+.video-fondo{
   position:fixed;
-  inset:0;
+  top:0;
+  left:0;
   width:100%;
   height:100%;
   object-fit:cover;
-  z-index:-10;
-}
-
-.overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.6);
   z-index:-5;
 }
 
+/* OSCURECER UN POCO EL VIDEO */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  z-index:-4;
+}
+
+/* DESTELLOS REALES */
+.destello{
+  position:fixed;
+  width:4px;
+  height:4px;
+  background:gold;
+  border-radius:50%;
+  box-shadow:0 0 10px gold;
+  animation:caer linear infinite;
+  z-index:-2;
+}
+
+@keyframes caer{
+  from{
+    transform:translateY(-10vh);
+    opacity:1;
+  }
+  to{
+    transform:translateY(110vh);
+    opacity:0;
+  }
+}
+
 .contenido{
-  position:relative;
-  z-index:5;
   background:rgba(0,0,0,0.6);
   width:90%;
   max-width:800px;
   margin:60px auto;
   padding:20px;
   border-radius:12px;
+  box-shadow:0 0 30px gold;
+  position:relative;
+  z-index:2;
 }
 
-.boton{
-  margin-top:15px;
-  padding:10px 20px;
-  font-size:18px;
-  cursor:pointer;
+h1{
+  font-size:50px;
+  text-shadow:0 0 20px gold;
+}
+
+h2{
+  color:#ffd700;
+}
+
+p{
+  font-size:20px;
+}
+
+a{
+  color:#00ff22;
+  font-size:24px;
+  font-weight:bold;
+  text-decoration:none;
 }
 </style>
 </head>
 
 <body>
 
-<video autoplay muted loop playsinline>
-  <source src="fondo.mp4" type="video/mp4">
+<!-- VIDEO -->
+<video class="video-fondo" autoplay muted loop playsinline>
+  <source src="casa.mp4" type="video/mp4">
 </video>
 
 <div class="overlay"></div>
 
-<audio id="musica" loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
-</audio>
+<!-- DESTELLOS -->
+<span class="destello" style="left:5%;animation-duration:1.4s;"></span>
+<span class="destello" style="left:15%;animation-duration:1.9s;"></span>
+<span class="destello" style="left:25%;animation-duration:1.2s;"></span>
+<span class="destello" style="left:35%;animation-duration:1.6s;"></span>
+<span class="destello" style="left:45%;animation-duration:1.3s;"></span>
+<span class="destello" style="left:55%;animation-duration:1.8s;"></span>
+<span class="destello" style="left:65%;animation-duration:1.1s;"></span>
+<span class="destello" style="left:75%;animation-duration:1.7s;"></span>
+<span class="destello" style="left:85%;animation-duration:1.4s;"></span>
+<span class="destello" style="left:95%;animation-duration:2s;"></span>
 
 <div class="contenido">
   <h1>Consejera Espiritual Triska</h1>
-  <p>🔮 Lecturas espirituales</p>
+  <h2>San Justo - Buenos Aires</h2>
 
-  <button class="boton" onclick="document.getElementById('musica').play()">
-    ▶ Activar música
-  </button>
+  <p>🔮 Lecturas claras y profundas</p>
+  <p>✨ Unión de parejas – Abrecaminos – Problemas laborales – Angustias</p>
+
+  <p><strong>Consultas al WhatsApp</strong></p>
+  <a href="https://wa.me/541136170640" target="_blank">
+    1136170640
+  </a>
 </div>
 
 </body>
