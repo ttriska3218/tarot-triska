@@ -3,14 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsApp Triska</title>
+<title>Tarot Triska</title>
 
 <style>
 body {
   margin: 0;
-  padding: 0;
   background: black;
-  height: 200vh; /* solo para probar scroll */
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 80px;
+}
+
+/* TEXTO CENTRAL */
+.contenido h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.contenido p {
+  font-size: 18px;
+  opacity: 0.9;
 }
 
 /* BOTÓN WHATSAPP */
@@ -18,37 +31,42 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   background-color: #25D366;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 15px rgba(37, 211, 102, 0.8);
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.9);
   z-index: 9999;
-  text-decoration: none;
 }
 
 .whatsapp-btn img {
-  width: 35px;
-  height: 35px;
+  width: 38px;
+  height: 38px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- BOTÓN CLICK WHATSAPP -->
+<div class="contenido">
+  <h1>🔮 TAROT TRISKA</h1>
+  <p>Consultas reales y directas</p>
+  <p>📲 Tocá el botón verde para hablar por WhatsApp</p>
+</div>
+
 <a
   class="whatsapp-btn"
   href="https://wa.me/5491136170640"
   target="_blank"
-  aria-label="WhatsApp"
+  rel="noopener"
 >
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
 
 </body>
 </html>
+
 
