@@ -12,8 +12,10 @@ body {
   background: black;
   color: white;
   text-align: center;
+  overflow: hidden;
 }
 
+/* VIDEO DE FONDO */
 #video-fondo {
   position: fixed;
   top: 0;
@@ -24,6 +26,33 @@ body {
   z-index: -10;
 }
 
+/* DESTELLOS */
+.destello {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, gold 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: flotar 6s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes flotar {
+  from {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* CONTENIDO */
 .contenido {
   position: relative;
   z-index: 10;
@@ -48,10 +77,12 @@ button {
 
 <body>
 
+<!-- VIDEO DE FONDO -->
 <video id="video-fondo" autoplay muted loop playsinline>
   <source src="casa.mp4" type="video/mp4">
 </video>
 
+<!-- AUDIO -->
 <audio id="musica" loop>
   <source src="puerta.mp3" type="audio/mpeg">
 </audio>
@@ -76,8 +107,8 @@ button {
 </div>
 
 <script>
+/* AUDIO */
 const audio = document.getElementById("musica");
-
 function toggleMusic() {
   if (audio.paused) {
     audio.play();
@@ -85,6 +116,22 @@ function toggleMusic() {
     audio.pause();
   }
 }
+
+/* DESTELLOS */
+function crearDestello() {
+  const d = document.createElement("div");
+  d.className = "destello";
+  d.style.left = Math.random() * 100 + "vw";
+  d.style.animationDuration = (4 + Math.random() * 4) + "s";
+  d.style.width = d.style.height = (4 + Math.random() * 6) + "px";
+  document.body.appendChild(d);
+
+  setTimeout(() => {
+    d.remove();
+  }, 8000);
+}
+
+setInterval(crearDestello, 400);
 </script>
 
 </body>
