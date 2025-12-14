@@ -13,7 +13,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      color: rgb(255, 255, 255);
+      color: #fff;
       text-align: center;
       font-family: Arial, sans-serif;
     }
@@ -27,7 +27,85 @@
       border-radius: 10px;
     }
 
-    h1 {
-      font-size: 50px;
-      margin-bottom: 1
+    h1 { font-size: 50px; margin-bottom: 10px; }
+    h2 { margin-top: 5px; font-size: 28px; color: #ffd700; }
+    p  { font-size: 20px; margin: 10px 0; }
+
+    a {
+      color: #00ff22;
+      font-size: 24px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="contenido">
+    <h1>Consejera Espiritual Triska</h1>
+    <h2>San Justo - Buenos Aires</h2>
+
+    <p>🔮 Lecturas claras y profundas</p>
+    <p>✨ Unión de parejas – Problemas Laborales – Abrecaminos – Problemas de vicios Angustias Depresion</p>
+    <p>Endulzamiento no dejes de consultarme</p>
+
+    <p><strong>Consultas al WhatsApp:</strong></p>
+    <a href="https://wa.me/541136170640" target="_blank">
+      Hace Click en el N°1136170640
+    </a>
+  </div>
+
+  <!-- ========================= -->
+  <!-- MÚSICA DE FONDO YOUTUBE -->
+  <!-- ========================= -->
+
+  <!-- El video arranca muteado (permitido).
+       Al tocar el botón, se activa el sonido -->
+  <iframe id="musicaYT"
+    width="0"
+    height="0"
+    src="https://www.youtube.com/embed/uGIVFUA8E3c?autoplay=1&mute=1&loop=1&playlist=uGIVFUA8E3c"
+    frameborder="0"
+    allow="autoplay; encrypted-media">
+  </iframe>
+
+  <button id="btnMusica" onclick="toggleMusica()" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    font-size: 16px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    background: #ffd700;
+    color: #000;
+    font-weight: bold;
+  ">
+    🔮 Activar música
+  </button>
+
+  <script>
+    let sonido = false;
+
+    function toggleMusica() {
+      const iframe = document.getElementById("musicaYT");
+      const btn = document.getElementById("btnMusica");
+
+      if (!sonido) {
+        iframe.src = "https://www.youtube.com/embed/uGIVFUA8E3c?autoplay=1&mute=0&loop=1&playlist=uGIVFUA8E3c";
+        btn.innerText = "🔇 Pausar música";
+        sonido = true;
+      } else {
+        iframe.src = "https://www.youtube.com/embed/uGIVFUA8E3c?autoplay=1&mute=1&loop=1&playlist=uGIVFUA8E3c";
+        btn.innerText = "🔮 Activar música";
+        sonido = false;
+      }
+    }
+  </script>
+
+</body>
+</html>
+
 
