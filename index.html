@@ -16,25 +16,38 @@ body {
   overflow: hidden;
 }
 
-/* VIDEO DE FONDO */
+/* VIDEO */
 video {
   position: fixed;
   top: 0;
   left: 0;
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  z-index: -2;
+  display: none;
+}
+
+/* IMAGEN INICIAL */
+.fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("fondo.jpg") center center / cover no-repeat;
   z-index: -1;
 }
 
-/* CAPA OSCURA PARA QUE SE LEA EL TEXTO */
+/* CAPA OSCURA */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.55);
+  z-index: 0;
 }
 
 /* CONTENIDO */
@@ -52,19 +65,31 @@ video {
 
 h1 {
   font-size: 50px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-a {
+/* BOTONES */
+.boton {
   font-size: 26px;
-  padding: 12px 25px;
+  padding: 12px 28px;
+  border-radius: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.play {
+  background: crimson;
+  color: white;
+  border: none;
+}
+
+.whatsapp {
   border: 2px solid #25D366;
   color: #25D366;
-  text-decoration: none;
-  border-radius: 12px;
 }
 
-a:hover {
+.whatsapp:hover {
   background: #25D366;
   color: black;
 }
@@ -74,19 +99,48 @@ a:hover {
 <body>
 
 <!-- VIDEO -->
-<video autoplay muted loop>
+<video id="video" muted loop playsinline>
   <source src="video.mp4" type="video/mp4">
 </video>
 
+<!-- MUSICA -->
+<audio id="musica" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<!-- FONDO INICIAL -->
+<div class="fondo" id="fondo"></div>
 <div class="overlay"></div>
 
-<!-- TEXTO -->
+<!-- CONTENIDO -->
 <div class="contenido">
   <h1>Triska Tarot</h1>
-  <a href="https://wa.me/5491136170640" target="_blank">
+
+  <button class="boton play" onclick="playTodo()">
+    ▶ Ver mensaje
+  </button>
+
+  <a class="boton whatsapp"
+     href="https://wa.me/5491136170640"
+     target="_blank">
     Consultas por WhatsApp
   </a>
 </div>
 
+<script>
+function playTodo() {
+  const video = document.getElementById("video");
+  const musica = document.getElementById("musica");
+  const fondo = document.getElementById("fondo");
+
+  fondo.style.display = "none";
+  video.style.display = "block";
+
+  video.play();
+  musica.play();
+}
+</script>
+
 </body>
 </html>
+
