@@ -2,8 +2,26 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Consejera Espiritual Triska</title>
+
+<!-- 🔐 SEGURIDAD (NO CAMBIA NADA VISUAL) -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta name="referrer" content="no-referrer">
+
+<!-- CSP ADAPTADA A TU VIDEO + AUDIO + JS -->
+<meta http-equiv="Content-Security-Policy"
+content="
+default-src 'self';
+img-src 'self' data:;
+media-src 'self';
+style-src 'self' 'unsafe-inline';
+script-src 'self' 'unsafe-inline';
+connect-src 'none';
+frame-ancestors 'none';
+">
 
 <style>
 body {
@@ -113,7 +131,8 @@ button {
 <!-- BOTÓN WHATSAPP -->
 <a class="whatsapp"
    href="https://wa.me/541136170640"
-   target="_blank">
+   target="_blank"
+   rel="noopener">
    💬 WhatsApp
 </a>
 
