@@ -39,17 +39,9 @@ body {
 }
 
 @keyframes flotar {
-  from {
-    transform: translateY(100vh) scale(0.5);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-10vh) scale(1.2);
-    opacity: 0;
-  }
+  from { transform: translateY(100vh) scale(0.5); opacity: 0; }
+  10% { opacity: 1; }
+  to { transform: translateY(-10vh) scale(1.2); opacity: 0; }
 }
 
 /* CONTENIDO */
@@ -72,17 +64,35 @@ button {
   background: gold;
   cursor: pointer;
 }
+
+/* BOTÓN WHATSAPP */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(37,211,102,0.7);
+  z-index: 100;
+}
+
+.whatsapp:hover {
+  background: #1ebe5d;
+}
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO DE FONDO -->
 <video id="video-fondo" autoplay muted loop playsinline>
   <source src="casa.mp4" type="video/mp4">
 </video>
 
-<!-- AUDIO -->
 <audio id="musica" loop>
   <source src="puerta.mp3" type="audio/mpeg">
 </audio>
@@ -97,24 +107,21 @@ button {
     💼 Sacar trabajo – Abrecaminos
   </p>
 
-  <p>
-    <a href="https://wa.me/541136170640" target="_blank">
-      📲 11 3617 0640
-    </a>
-  </p>
-
   <button onclick="toggleMusic()">▶️ / ⏸️ Música</button>
 </div>
+
+<!-- BOTÓN WHATSAPP -->
+<a class="whatsapp"
+   href="https://wa.me/541136170640"
+   target="_blank">
+   💬 WhatsApp
+</a>
 
 <script>
 /* AUDIO */
 const audio = document.getElementById("musica");
 function toggleMusic() {
-  if (audio.paused) {
-    audio.play();
-  } else {
-    audio.pause();
-  }
+  audio.paused ? audio.play() : audio.pause();
 }
 
 /* DESTELLOS */
@@ -125,12 +132,8 @@ function crearDestello() {
   d.style.animationDuration = (4 + Math.random() * 4) + "s";
   d.style.width = d.style.height = (4 + Math.random() * 6) + "px";
   document.body.appendChild(d);
-
-  setTimeout(() => {
-    d.remove();
-  }, 8000);
+  setTimeout(() => d.remove(), 8000);
 }
-
 setInterval(crearDestello, 400);
 </script>
 
