@@ -1,77 +1,122 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Consejera Espiritual Triska</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consejera Espiritual Triska</title>
 
-<style>
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: Arial, sans-serif;
-}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
 
-/* VIDEO DE FONDO */
-#videoFondo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
+    /* VIDEO DE FONDO */
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
 
-/* CONTENIDO */
-.contenido {
-  position: relative;
-  z-index: 1;
-  background: rgba(0,0,0,0.6);
-  color: white;
-  max-width: 800px;
-  margin: 80px auto;
-  padding: 25px;
-  border-radius: 12px;
-  text-align: center;
-}
+    /* CONTENIDO */
+    .contenido {
+      background-color: rgba(0, 0, 0, 0.6);
+      width: 90%;
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+      border-radius: 12px;
+    }
 
-h1 {
-  font-size: 48px;
-}
+    h1 {
+      font-size: 48px;
+    }
 
-h2 {
-  color: gold;
-}
+    h2 {
+      color: gold;
+    }
 
-a {
-  color: #00ff22;
-  font-size: 24px;
-  text-decoration: none;
-  font-weight: bold;
-}
-</style>
+    p {
+      font-size: 20px;
+    }
+
+    a {
+      color: #00ff22;
+      font-size: 22px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* BOTÓN MÚSICA */
+    .btn-musica {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 18px;
+      background: #ffd700;
+      color: black;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    .btn-musica:hover {
+      background: #ffcc00;
+    }
+
+    iframe {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
 
-<video id="videoFondo" autoplay muted loop playsinline>
-  <source src="casa.mp4" type="video/mp4">
-</video>
+  <!-- VIDEO DE FONDO -->
+  <video autoplay muted loop>
+    <source src="casa.mp4" type="video/mp4">
+  </video>
 
-<div class="contenido">
-  <h1>Consejera Espiritual Triska</h1>
-  <h2>San Justo - Buenos Aires</h2>
+  <!-- YOUTUBE AUDIO -->
+  <iframe
+    id="ytplayer"
+    src="https://www.youtube.com/embed/uGIVFUA8E3c?enablejsapi=1"
+    frameborder="0">
+  </iframe>
 
-  <p>🔮 Lecturas claras y profundas</p>
-  <p>✨ Unión de parejas – Trabajo – Abrecaminos – Angustias</p>
+  <div class="contenido">
+    <h1>Consejera Espiritual Triska</h1>
+    <h2>San Justo - Buenos Aires</h2>
 
-  <p><strong>Consultas al WhatsApp</strong></p>
-  <a href="https://wa.me/541136170640" target="_blank">
-    📲 11 3617 0640
-  </a>
-</div>
+    <p>🔮 Lecturas claras y profundas</p>
+    <p>✨ Unión de parejas – Problemas Laborales – Abrecaminos</p>
+
+    <p><strong>Consultas al WhatsApp:</strong></p>
+    <a href="https://wa.me/541136170640" target="_blank">
+      📲 11 3617 0640
+    </a>
+
+    <br><br>
+
+    <button class="btn-musica" onclick="activarMusica()">
+      ▶️ Activar música
+    </button>
+  </div>
+
+  <script>
+    function activarMusica() {
+      const iframe = document.getElementById("ytplayer");
+      iframe.src = iframe.src + "&autoplay=1";
+    }
+  </script>
 
 </body>
 </html>
